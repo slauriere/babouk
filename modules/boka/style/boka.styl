@@ -1,0 +1,661 @@
+/*  This is for allowing the content of the modal to overflow its container: typically in the case of the open-modal, we want the suggested items to possibly overflow the modal boundaries.
+*/
+.container
+  max-width: 1160px
+  background: white
+
+nav
+  .navbar-brand
+    flex-grow: 1
+    justify-content: space-between
+    .logo
+      padding-left: 0.5rem
+      width: 187px
+      svg // needed for Chrome
+        width: 187px
+    .navbar-item img
+      max-height: inherit
+
+  &.is-fixed-bottom
+    min-height: inherit
+    .navbar-brand
+      display: block
+      min-height: inherit
+      .navbar-item
+        display: block
+        padding: 0
+        .field.is-grouped
+          display: flex
+          justify-content: space-evenly
+          .button.control
+            flex-grow: 1
+            margin-right: 0
+
+@keyframes animationOpen {
+  0% {
+    display: none
+    opacity: 0
+    max-width: 0
+  }
+  10% {
+    display: block
+    opacity: 0.5
+  }
+  100% {
+    opacity: 1
+    max-width: 500px
+  }
+}
+
+.menu
+  background: white
+  border-top: 1px solid rgba(0,0,0, 0.03);
+  box-shadow: 0 0 2px rgba(0,0,0,0.1)
+  max-height: 80% // this is for having a vertical scroll
+  overflow-y: auto
+  padding: 1rem
+  position: fixed
+  z-index: 20 // codemirror has z-index: 6, leaflet around 15.
+  margin-top: 6rem
+  margin-left: 2rem
+  animation: animationOpen .2s ease-in-out
+  ul.menu-list
+    list-style: none
+    margin: 0
+    a
+      border-radius: 0
+    menuitem.active
+      a
+        background-color: whitesmoke
+    ul
+      list-style-type: none
+      border-left: inherit
+      padding-left: 0.75rem
+
+.button
+  border-radius: 0
+
+.icon path
+  fill: white
+
+/* For not having an outline around the Prosemirror editor when it has focus */
+:focus
+  outline: none
+
+/* Bulma comes with .buttons:last-child margin-bottom: -0.5rem, not sure why */
+.buttons:last-child
+  margin-bottom: inherit
+
+/* This is for modals to show up correctly on small screens. A z-index is needed for the 
+CodeMirror editor not to overlap with the modal on small screens. */
+.modal
+  //position: inherit
+  .modal-card
+    position: absolute
+    top: 8rem
+    z-index: 40
+    overflow: visible
+    .modal-card-body
+      overflow: visible // for multiselect content to show up correctly on top
+      .vue-swatches__swatch
+        width: 32px !important
+        height: 32px !important
+        border-radius: 0px !important
+    &.has-image-image
+      overflow: auto
+      max-height: calc(100vh - 100px)
+      .modal-card-body
+        overflow: auto
+    
+.password
+  align-items: center
+  background: none
+  border: none
+  bottom: 0
+  display: flex
+  margin-right: .1rem
+  outline: none
+  position: absolute
+  right: 0
+  top: 0
+  width: 2rem
+  cursor: pointer
+
+.buttons:not(:last-child)
+  margin-bottom: 0.2rem
+
+.notifications
+  max-width: 20%
+  position: fixed
+  top: 50px
+  right: 0
+  z-index: 1024 + 233
+  pointer-events: none
+
+  .notification
+    margin: 20px
+
+.notification
+  position: relative
+  min-width: 240px
+  backface-visibility: hidden
+  transform: translate3d(0, 0, 0)
+  pointer-events: all
+
+.input, .textarea
+  border-radius: 0
+
+.vue-codemirror .CodeMirror
+  height: 700px
+
+main
+  padding: 0 2rem 2rem 2rem
+
+main.kaya
+  padding: 0 !important
+
+.player
+  .is-loading-zone
+    margin: 6em
+    .is-loading
+      margin: auto
+      border: none
+      width: 50px
+      height: 50px
+      &:after
+        height: 3em
+        width: 3em
+        border: 2px solid #820674
+        border-right-color: transparent // needed for the loading icon animation to animate indeed
+        border-top-color: transparent
+  .player
+    .is-loading-zone
+      margin: 0
+      .is-loading
+        &:after
+          height: 1em
+          width: 1em
+
+
+.content
+  h1, h2, h3, h4, h5, h6
+    font-weight: inherit
+  h2
+    color: #9d9d9d
+    font-size: 1.6rem
+    margin-bottom: 0.3rem
+    margin-top: 0.3rem
+  h3
+    color: #8f8e8e
+    font-size: 1.3rem
+    &:not(:first-child)
+      margin-top: 1.2rem
+  // p
+  //   margin-top: 1rem
+  //   margin-bottom: 1rem
+  figure
+    margin-left: 0
+    margin-right: 0
+    p // TODO: this can be removed once remark-unwrap-images is installed
+      margin: 0
+    figcaption 
+      position: relative
+      text-align: center
+      background: rgba(0,0,0, 0.5)
+      font-size: 0.7rem
+      padding: 1rem
+      position: relative
+      white-space: nowrap
+  .footnote
+    font-size: smaller
+    color: #444
+    text-align: right
+  .dialog
+    ul
+      list-style-type: "— "
+  .player
+    margin-top: 0.5rem // TODO: check why
+  .tabs
+    overflow-x: hidden
+  .bodies
+    // We don't want the margins to collapse because this can raise issues with read when the rings are not present,
+    // and we don't any scrollbar within a tab
+    // See https://www.sitepoint.com/collapsing-margins/
+    overflow: hidden
+
+  .section
+    padding: 0 3rem 3rem 3rem
+
+  hr
+    margin: 0.8rem
+
+  .necklace
+    .field.is-grouped.is-grouped-multiline:last-child
+      margin-bottom: -0.25rem;
+    .tag
+      font-size: inherit
+      &.edit-ring, &.is-delete
+        &:hover
+          background-color: #e8e8e8
+      &.is-link
+        background-color: #bf92ba
+        color: white
+        &.is-value
+          background-color: #d9a6d2
+      &.add-ring, &.add-media
+        &:hover
+          background-color: #82486f
+
+  blockquote
+    border-left: 1px solid #dbdbdb
+    padding: 1rem
+
+.dropdown-menu
+  &.narrow
+    min-width: 1rem
+    .dropdown-content
+      padding: 0
+      a.dropdown-item
+        padding: 0.6rem 1.8rem
+    &.narrow-square
+      .dropdown-content
+        background-color: #d6dadd
+        a.dropdown-item
+          padding: 0.6rem
+          &:hover
+            background-color: #e8e8e8
+
+.dropdown
+  .navbar-link:not(.is-arrowless)
+    border-radius: 0 !important
+    &:after
+      border-color: white
+  &.is-up
+    .navbar-link:not(.is-arrowless)
+      &:after
+        margin-top: -0.2em
+        transform: rotate(135deg)
+
+.locale-menu
+  .locale
+    text-transform: uppercase
+
+    
+
+.history
+  .d2h-code-line-ctn, .d2h-code-line-prefix
+    white-space: break-spaces
+
+.map
+  width: 100%
+  padding-bottom: 2rem
+  .description
+    padding-bottom: 1rem
+  .leaflet-container
+    font-family: inherit
+    height: 500px
+  .leaflet-popup
+    background-color: white
+    .leaflet-popup-content
+      h2
+        font-size: 1.4rem
+
+.multiselect ul // Otherwise, multiselect list item has a margin. TODO: target only multiselect
+  margin-left: 0
+  margin-top: 0
+
+.content .tabs ul
+  margin: 0
+
+hr
+  margin: 0.6rem 0
+  height: 1px
+
+a
+  color: #b50290
+
+.clear
+  clear: both
+
+.editor
+  margin-top: 1rem
+  margin-bottom: 2rem
+
+.content table thead td, .content table thead th
+  border-width: 0 0 1px
+
+/*  This is for multiselect elements to not overflow */
+.multiselect__content-wrapper
+  overflow-x: hidden !important
+
+.edit-ring 
+  .multiselect
+    &:nth-child(2)
+      margin-top: 1rem
+
+.history
+  .commit
+    .box
+      border-radius: inherit
+      border-bottom: 1px solid #eee
+      box-shadow: inherit
+      padding: 1.25rem 0
+      h2
+        font-size: 1rem
+        font-weight: normal
+        .date
+          color: #9b9a9a
+          font-size: 0.9rem
+        .user
+          color: #555
+
+.thumbnail
+  //float: left
+  background-size: cover
+  background-repeat: no-repeat
+  background-position: center center
+  margin: 5px
+  cursor: pointer
+  height: 50px
+  width: 75px
+  object-fit: cover
+
+.control
+  .icon
+    background-size: contain
+    &.close
+      background-image: url("/icons/close.svg")
+    &.trash
+      background-image: url("/icons/trash.svg")
+    &.edit
+      background-image: url("/icons/pencil.svg")
+    &.form
+      background-image: url("/icons/form.svg")
+    &.history
+      background-image: url("/icons/history.svg")
+    &.random
+      background-image: url("/icons/random.svg")
+    &.save
+      background-image: url("/icons/save.svg")
+    &.search
+      background-image: url("/icons/search.svg")
+    &.user
+      background-image: url("/icons/user.svg")
+    &.add-media
+      background-image: url("/icons/file.svg")
+    &.add-ring
+      background-image: url("/icons/ring.svg")
+    &.edit-ring
+      background-image: url("/icons/pencil-thin.svg")
+
+.slideshow
+  &.is-presentation
+    .modal-background
+      background-color: white
+    .button.is-primary
+      background-color: #dbdbdb
+      &:hover
+        background-color: #c4c4c4
+      &.caption-edit, &.remove
+        display: none
+    .swiper-wrapper
+      box-sizing: inherit // otherwise the 'content-box' box-sizing causes issues with grids / columns in slides
+  .modal-content
+    // height: 100%
+    scrollbar-width: none
+    &::-webkit-scrollbar
+      display: none;
+    .toolbar
+      position: absolute
+      top: 1rem
+      right: 1rem
+      z-index: 2
+      .field.is-grouped
+        margin-bottom: 0
+      a.control
+        .icon
+          background-size: contain
+          &.close
+            background-image: url("/icons/close.svg")
+          &.remove
+            background-image: url("/icons/trash.svg")
+          &.edit-caption
+            background-image: url("/icons/pencil.svg")
+    .swiper-button-next, .swiper-button-prev
+      &.button
+        background: inherit
+        border-width: 0
+    .media-toolbar // blg
+      display: none
+    .caption-panel
+      width: 100%
+      .caption-content-panel
+        background: black
+        opacity: 0.8
+        padding: 1rem
+        width: 100%
+        .caption-content
+          font-size: 0.9rem
+          color: #fff
+          margin: auto
+          width: 100%
+          text-align: center
+          h1, h2
+            color: white
+            margin-top: 0
+          h1
+            font-size: 0.9rem
+          .description 
+            text-align: left
+          &.has-no-sentence
+            .description
+              text-align: center
+          blockquote
+            background: inherit
+            padding: 0 0.5em
+          a
+            color: #ffbcf1
+      .caption-editor-panel
+        background: black
+        opacity: 0.6
+        padding: 1rem
+        text-align: center
+        width: 100%
+        .caption-editor
+          width: 70%
+
+  .swiper-container
+    .swiper-zoom-container > img
+      // This is to prevent having a scroll for images with large height.
+      // However, this causes an issue: sometimes the zoom is not working, in particular for images
+      // with heterogeneous dimensions.
+      max-height: 85vh 
+  .swiper-container-horizontal > .swiper-pagination
+      color: white
+      top: 10px
+      bottom: inherit !important // needed for the move on zoom to work as expected, weird
+
+.content
+  .grid 
+    &.has-header, &.has-headers
+      padding: 1rem
+      .column.col-header
+        background: #fafafa
+        font-weight: bold
+      &.is-striped
+        .column.col-header
+          border-bottom: 2px solid #f0f0f0
+    &.has-headers
+      .column.row-header
+          font-weight: bold
+    &.is-striped
+      .column
+        border-bottom: 1px solid #f0f0f0
+    .column
+      position: relative
+      /** cursor: pointer; */
+      figure
+        margin: 0
+        width: 100%
+        height: 100%
+        figcaption
+          font-style: inherit
+          color: white
+          font-size: 1.2rem
+          /* This is for centering the figure caption vertically and horizontally in cells */
+          position: absolute
+          top: 50%
+          left: 50%
+          transform: translate(-50%, -50%)
+        .image
+          width: 100%
+          height: 16rem
+          object-fit: cover
+          display: block // this is to avoid unwanted space between space and figcaption due to bulma setting 'display: inline-block' for img
+          // float: left;
+          // background-size: cover;
+          // background-repeat: no-repeat;
+          // background-position: center center;
+          // cursor: pointer;
+
+  .columns.is-gapless:not(:last-child)
+    margin-bottom: 0
+
+  .panel
+    margin: 0.5em // this is for the box shadow to show up, TODO: fix global alignment
+    p.panel-heading
+      margin-bottom: 0 // to avoid p(not-last-child): margin-bottom: 1em
+  .button
+    margin-right: 0.5rem
+  .ring-value-color
+    width: 32px
+    height: 32px
+
+.-signin
+  h1
+    display: none
+  .panel.signin
+    margin: 3rem auto 10rem auto
+    form
+      width: 100%
+
+@media screen and (max-width: 769px)
+  .content.boka // this is to position the content below the top navbar
+    padding-top: 5rem
+    &.grid
+      padding-top: 0
+
+  .modal-card
+    width: 90%
+
+  .panel.signin
+    width: 80%
+
+@media screen and (min-width: 769px)
+  .panel.signin
+    width: 30%
+
+  nav
+    &.navbar.is-spaced // we want these rules even for tablets
+      padding: 1rem 2rem
+    .navbar-brand
+      margin-left: 4rem
+      margin-right: 4rem
+      .logo
+        padding: 1rem 0.8rem
+    .navbar-burger
+      background: #fbfbfb
+      display: block
+      margin-left: 1rem
+    .navbar-menu
+      display: flex
+      flex-grow: 1
+      flex-shrink: 0
+    &.is-fixed-bottom
+      .navbar-brand
+        margin: inherit
+  
+  // Otherwise, issue with swiper pagination and other controls positioning
+  // .modal
+  //   .swiper-container
+  //     position: initial
+  
+  /* This is for resetting the small screen rule above, not needed on large screens. */
+  // Commented because rule above commented
+  .modal
+    //position: fixed
+    margin-top: 0
+    .modal-card
+      position: inherit
+
+  .modal.slideshow
+    .modal-content
+      width: 80%
+      .caption
+        text-align: center
+        padding: 0.5rem
+        color: white
+        position: absolute
+        bottom: 1rem
+
+  .edit-ring 
+    .multiselect
+      display: inline-block
+      margin-right: 1em
+      &:nth-child(2)
+        margin-top: inherit
+    .input, .textarea
+      display: inline-block
+      width: 100%
+      min-width: 100% // needed for the textarea to behave as expected (otherwise too large)
+    .has-constrained-relation
+      .ring-relatum
+        width: 100%
+
+  main
+    padding: 0 8rem 2rem 8rem
+
+  .content
+    h3
+      font-size: 1.4rem
+    figure
+      margin-left: inherit
+      margin-right: inherit
+      img.max
+        max-width: 80%
+      figcaption 
+        font-size: 1rem
+  .map
+    .leaflet-container
+      height: 700px
+
+  .column
+    &.is-one-eighth-tablet
+      flex: none
+      width: 12.5%
+
+  .thumbnail
+    height: 100px
+    width: 150px
+
+  .slideshow
+    .modal-content
+      .caption-panel
+        .caption-content-panel
+          .caption-content
+            font-size: 1rem
+            width: 60%
+            h1
+              font-size: 1.3rem
+
+  // TODO until kaya.vue gets converted to a template in JavaScript with dotjs
+  // .kaya
+  //   &.wide
+  //     width: 100vw
+  //     position: relative
+  //     left: 50%
+  //     right: 50%
+  //     margin-left: -50vw
+  //     margin-right: -50vw
+  //     background: #fff
+

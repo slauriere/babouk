@@ -1,0 +1,13 @@
+{
+  "name": "@babouk/model",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "Babouk data model types",
+  "type": "module",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

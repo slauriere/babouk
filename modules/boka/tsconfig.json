@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "module": "commonjs",
+    "noImplicitAny": true,
+    "strictPropertyInitialization": false,
+    "resolveJsonModule" : true,
+    "outDir": "./src/",
+    "paths": {
+      "*": ["src/*"]
+    },
+    "pretty": true,
+    "sourceMap": true,
+    "strict": true,
+    "target": "es2016"
+  },
+  "include": ["**/*.ts", "**/*.vue"],
+  "exclude": ["node_modules"]
+}
+

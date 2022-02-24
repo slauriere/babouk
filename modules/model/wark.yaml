@@ -1,0 +1,31 @@
+# This file contains definition of the core structures needed by babouk: izu, aek, aoi, aia, etc.
+- id: typ
+  body: "# Type"
+  izu: typ
+- id: aek
+  body: "# Relation"
+  izu: typ
+- id: izu
+  izu: aek
+  aoa: *
+  aia: typ
+- id: aoa
+  body: "# Has domain"
+  izu: aek
+  aoa: aek
+  aia: string
+- id: aia
+  body: "# Has image"
+  izu: aek
+  aoa: aek
+  aia: string
+- id: page
+  izu: aek
+  aoa: *
+  aia: *
+- id: aei
+  izu: aek
+  aoa: typ
+  aia: string
+  body: "# Has depiction"
+

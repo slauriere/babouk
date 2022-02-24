@@ -1,0 +1,18 @@
+cp ub/package.json ub/ub.yaml ~/jiskefet
+git checkout .
+git pull
+cp ~/jiskefet/package.json ~/jiskefet/ub.yaml ./ub
+cd abok
+yarn tsc
+cd ../zevir
+yarn tsc
+cd ub
+yarn add ../abok/
+cp flexsearch/index.d.ts node_modules/flexsearch/
+yarn tsc
+cd ../boka
+yarn add ../abok
+yarn add ../zevir
+yarn cssize
+yarn build
+cd ..

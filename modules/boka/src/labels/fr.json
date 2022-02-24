@@ -1,0 +1,43 @@
+{
+    "page": {
+        "open-or-create": "Ouvrir ou créer [Ctrl+O]",
+        "open-or-create-title": "Ouvrir ou créer",
+        "random": "Ouvrir au hasard [Ctrl+2]",
+        "save": "Enregistrer [Ctrl+S]",
+        "close": "Fermer [Ctrl+E]",
+        "delete": "Effacer [Ctrl+3]",
+        "epub": "Exporter au format epub",
+        "open": "Ouvrir",
+        "edit": "Éditer",
+        "create": "Créer",
+        "cancel": "Annuler",
+        "umlando": "Voir l'historique",
+        "whakar": "Suivre",
+        "unwhakar": "Contresuivre"
+    },
+    "iiak": {
+        "signin": "S'authentifier",
+        "signin-title": "Authentification",
+        "signup": "S'inscrire",
+        "signup-title": "Inscription",
+        "out": "Se déconnecter",
+        "login": "Identifiant",
+        "password": "Mot de passe"
+    },
+    "umlando": {
+        "view": "Voir l'historique",
+        "has-more-media": "Davantage de fichiers ont été modifiés, ils sont visibles depuis la page du commit.",
+        "has-more-changes": "D'autres modifications ont été apportées mais ne peuvent être affichées dans cette inteface en raison d'une limitation technique."
+    },
+    "blg": {
+        "my-itinerary": "Mon parcours",
+        "my-steps": "Mes étapes",
+        "next-steps": "Prochaines étapes",
+        "my-plan": "Mon plan",
+        "information": "Infos pratiques",
+        "enlarge": "Agrandir",
+        "access": "Comment y arriver ?",
+        "schedule": "Horaires d'ouverture",
+        "legal-terms": "Mentions légales"
+    }
+}

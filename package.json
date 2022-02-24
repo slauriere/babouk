@@ -1,0 +1,11 @@
+{
+  "main": "dlala/index.js",
+  "name": "babouk",
+  "version": "0.0.1",
+  "description": "Wiki engine with constrained relations, Git based with Node server and Vue interface",
+  "repository": {
+    "license": "ISC",
+    "type": "git",
+    "url": "git+https://framagit.org/babouk/babouk.git"
+  }
+}

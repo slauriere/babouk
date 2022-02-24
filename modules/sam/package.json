@@ -1,0 +1,20 @@
+{
+  "name": "@babouk/sam",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "description": "Sam stands for samhall, it's a library for communicating with a Babouk server.",
+  "homepage": "https://babouk.net",
+  "dependencies": {
+    "@babouk/model": "../model",
+    "axios": "^0.19.0",
+    "file-loader": "^5.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  },
+  "keywords": [
+    "pim",
+    "wiki",
+    "rdf"
+  ]
+}

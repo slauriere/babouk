@@ -1,0 +1,45 @@
+{
+  "page": {
+    "open-or-create": "Open or create page [Ctrl+O]",
+    "open-or-create-title": "Open or create",
+    "random": "Open random page [Ctrl+2]",
+    "save": "Save page [Ctrl+S]",
+    "close": "Close page tab [Ctrl+E]",
+    "delete": "Delete page [Ctrl+3]",
+    "epub": "Export page to epub",
+    "open": "Open",
+    "edit": "Edit",
+    "create": "Create",
+    "translate": "Translate",
+    "cancel": "Cancel",
+    "whakar": "Follow",
+    "unwhakar": "Unfollow",
+    "toggle-writer": "Toggle writer mode",
+    "toggle-wizard": "Toggle wizard mode"
+  },
+  "iiak": {
+    "signin": "Sign in",
+    "signin-title": "Authentication",
+    "signup": "Sign-up",
+    "signup-title": "New Account",
+    "out": "Sign out",
+    "login": "Login",
+    "password": "Password"
+  },
+  "history": {
+    "view": "Show page history",
+    "has-more-media": "More files were changed, they are all listed on the commit page itself.",
+    "has-more-changes": "More changes occurred but they cannot be displayed in this view due to a technical limitation."
+  },
+  "blg": {
+    "my-itinerary": "My itinerary",
+    "my-steps": "My steps",
+    "next-steps": "Next steps",
+    "my-plan": "My plan",
+    "information": "Information",
+    "enlarge": "Enlarge",
+    "access": "Access",
+    "schedule": "Schedule",
+    "legal-terms": "Legal terms"
+  }
+}
